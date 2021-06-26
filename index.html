@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Book Shelf</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="pageTitle">
+            My Book Shelf
+        </h1>
+    </header>
+    <main>
+        <div class="searchBar">
+            <form id="searchBook">
+                <input id="searchBookTitle" class="formInput" type="text" placeholder="Cari judul buku...">
+                <button class="formButton" type="submit"><span class="buttonText">Search</span></button>
+                <button class="formButton"><span class="buttonText">Add Book</span></button>
+            </form>
+        </div>
+        <div class="bookList">
+            <section id="notFinished" class="bookListSect">
+                <h2 class="sectionTitle">
+                    Belum selesai dibaca
+                </h2>
+            </section>
+            <section id="finished" class="bookListSect">
+                <h2 class="sectionTitle">
+                    Selesai dibaca
+                </h2>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
