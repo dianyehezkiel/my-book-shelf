@@ -19,23 +19,115 @@
         <div class="searchBar">
             <form id="searchBook">
                 <input id="searchBookTitle" class="formInput" type="text" placeholder="Cari judul buku...">
-                <button class="formButton" type="submit"><span class="buttonText">Search</span></button>
-                <button class="formButton"><span class="buttonText">Add Book</span></button>
+                <button id="searchBookButton" class="formButton" type="submit"><span
+                        class="buttonText">Search</span></button>
+                <button id="addBookButton" class="formButton" type="button"><span class="buttonText">Add
+                        Book</span></button>
             </form>
+        </div>
+        <div id="bookModal" class="modal hide">
+            <div class="modalContent">
+                <span class="close">&times;</span>
+                <form id="addEditBook">
+                    <div class="formGroup">
+                        <div class="formColumn">
+                            <label for="title" id="titleLabel" class="label">Judul</label>
+                            <input type="text" name="title" id="title" class="formControl"
+                                placeholder="Masukkan Judul..." required />
+                        </div>
+                    </div>
+                    <div class="formGroup">
+                        <div class="formColumn">
+                            <label for="author" id="authorLabel" class="label">Penulis</label>
+                            <input type="text" name="author" id="author" class="formControl"
+                                placeholder="Masukkan Penulis..." required/>
+                        </div>
+                    </div>
+                    <div class="formGroup">
+                        <div class="formColumn">
+                            <label for="year" id="yearLabel" class="label">Tahun</label>
+                            <input type="number" name="year" id="year" class="formControl"
+                                placeholder="Masukkan Tahun Terbit..." required />
+                        </div>
+                        <div class="formColumn">
+                            <p id="readlabel" class="label">Apakah buku ini telah selesai dibaca?</p>
+                            <div class="radioGroup">
+                            <div class="radioColumn">
+                                <input name="finishedStatus" id="radioFinished" value="true" type="radio"
+                                    class="inputRadio" />
+                                <label for="radioFinished" class="inputRadio">Selesai</label>
+                            </div>
+                            <div class="radioColumn">
+                                <input name="finishedStatus" id="radioNotFinished" value="false" type="radio"
+                                    class="inputRadio">
+                                <label for="radioNotFinished" class="inputRadio">Belum Selesai</label>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                    <button disabled="disabled" class="hide">Edit</button>
+                </form>
+            </div>
         </div>
         <div class="bookList">
             <section id="notFinished" class="bookListSect">
                 <h2 class="sectionTitle">
                     Belum selesai dibaca
                 </h2>
+                <div id="notFinsihedBookList">
+                    <div class="bookListItem">
+                        <div class="bookDesc">
+                            <h3 class="bookDescTitle">Book Example</h3>
+                            <p class="bookDescAuthor">Dian Yehezkiel</p>
+                            <p class="bookDescYear">2021</p>
+                        </div>
+                        <div class="bookButtons">
+                            <button id="editBookButton" class="editButton blueButton">Edit</button>
+                            <button class="finishedButton greenButton">Selesai Baca</button>
+                            <button class="removeButton redButton">Hapus</button>
+                        </div>
+                    </div>
+                    <div class="bookListItem">
+                        <div class="bookDesc">
+                            <h3 class="bookDescTitle">Really long title book example bla bla bla bla bla blabla bla bla
+                                bla bla bla bla bla bla bla bla bla bla bla</h3>
+                            <p class="bookDescAuthor">Dian Yehezkiel</p>
+                            <p class="bookDescYear">2021</p>
+                        </div>
+                        <div class="bookButtons">
+                            <button class="editButton blueButton">Edit</button>
+                            <button class="finishedButton greenButton">Selesai Baca</button>
+                            <button class="removeButton redButton">Hapus</button>
+                        </div>
+                    </div>
+                </div>
             </section>
             <section id="finished" class="bookListSect">
                 <h2 class="sectionTitle">
                     Selesai dibaca
                 </h2>
+                <div id="finsihedBookList">
+                    <div class="bookListItem">
+                        <div class="bookDesc">
+                            <h3 class="bookDescTitle">Really long title book example bla bla bla bla bla blabla bla bla
+                                bla bla bla bla bla bla bla bla bla bla bla</h3>
+                            <p class="bookDescAuthor">Dian Yehezkiel</p>
+                            <p class="bookDescYear">2021</p>
+                        </div>
+                        <div class="bookButtons">
+                            <button class="editButton blueButton">Edit</button>
+                            <button class="finishedButton yellowButton">Belum Selesai Baca</button>
+                            <button class="removeButton redButton">Hapus</button>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
+
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>

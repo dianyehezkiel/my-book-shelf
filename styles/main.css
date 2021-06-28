@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    color: #eee;
 }
 
 h1,
@@ -22,12 +23,40 @@ html {
     background-repeat: no-repeat;
 }
 
+button {
+    background-color: rgba(44, 0, 30, 0.6);
+}
+
+button:hover {
+    background-color: rgba(44, 0, 30, 0.8);
+    cursor: pointer;
+}
+
+button.greenButton:hover {
+    background-color: rgba(33, 78, 52, 0.8);
+}
+
+button.blueButton:hover {
+    background-color: rgba(0, 107, 166, 0.8);
+}
+
+button.redButton:hover {
+    background-color: rgba(163, 50, 11, 0.8);
+}
+
+button.yellowButton:hover {
+    background-color: rgba(234, 196, 53, 0.8);
+}
+
+button.disabledButton {
+    background-color: rgba(205, 205, 205, 0.6);
+}
+
 .header {
     display: flex;
     padding: 16px;
     align-items: center;
     justify-content: center;
-    color: white;
 }
 
 main {
@@ -40,37 +69,34 @@ main {
     max-width: 100%;
 }
 
-.searchBar > #searchBook {
+.searchBar>#searchBook {
     display: flex;
     flex-direction: row;
     max-width: 100%;
     height: 40px;
-    
+
 }
 
-.searchBar > #searchBook > .formInput {
+.searchBar>#searchBook>.formInput {
     flex: 70%;
     padding: 8px;
     border: 0;
     border-radius: 8px 0px 0px 8px;
     font-size: 16px;
+    background-color: rgba(44, 0, 30, 0.4);
 }
 
-.searchBar > #searchBook > .formButton {
+.searchBar>#searchBook>.formButton {
     flex: 15%;
     padding: 8px;
     border: 0;
-    border-left: 1px #333 solid;
+    border-left: 1px #2C001E solid;
     border-radius: 0;
     font-size: 16px;
 }
 
-.searchBar > #searchBook > .formButton:last-child {
+.searchBar>#searchBook>.formButton:last-child {
     border-radius: 0px 8px 8px 0px;
-}
-
-.searchBar > #searchBook > .formButton:hover {
-    cursor: pointer;
 }
 
 .bookList {
@@ -78,58 +104,229 @@ main {
     display: flex;
 }
 
-.bookList > .bookListSect {
+.bookList>.bookListSect {
     padding: 8px;
     flex: 50%;
     border: 2px #333 solid;
     border-radius: 8px;
 }
 
-.bookList > .bookListSect:first-child {
+.bookList>.bookListSect:first-child {
     margin-right: 4px;
 }
 
-.bookList > .bookListSect:last-child {
+.bookList>.bookListSect:last-child {
     margin-left: 4px;
 }
 
-.bookList > .bookListSect > .sectionTitle {
-    color: white;
+.bookList>.bookListSect>.sectionTitle {
+    margin-bottom: 8px;
+    font-size: 28px;
+    line-height: 32px;
+}
+
+#notFinisihedBookList,
+#finishedBookeList {
+    display: flex;
+    flex-direction: column;
+}
+
+.bookListItem {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.bookListItem:last-child {
+    margin-bottom: 0;
+}
+
+.bookDesc {
+    flex: 75%;
+}
+
+.bookDesc>.bookDescTitle {
+    font-size: 24px;
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.bookDesc>.bookDescAuthor,
+.bookDesc>.bookDescYear {
+    font-size: 15px;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.bookButtons {
+    display: flex;
+    flex-direction: column;
+    flex: 25%;
+}
+
+.bookButtons>button {
+    flex: 33.3%;
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px #333 solid;
+    border-radius: 0;
+}
+
+.bookButtons>button:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.bookButtons>button:last-child {
+    border-radius: 0 0 8px 8px;
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    position: fixed;
+    /* Stay in place */
+    z-index: 2;
+    /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
 }
-  
-  /* Modal Content/Box */
+
+.hide {
+    display: none;
+}
+
+.hideModal {
+    z-index: -1;
+    opacity: 0;
+    animation: hideModal .25s;
+
+    transform: scale(0);
+}
+
+@keyframes hideModal {
+    from {
+        z-index: 2;
+        transform: scale(1);
+        opacity: 1;
+        display: block;
+    } to {
+        z-index: -1;
+        transform: scale(0);
+        opacity: 0;
+        display: none;
+    }
+}
+
+.showModal {
+    display: block;
+    z-index: 2;
+    opacity: 1;
+    animation: showModal .25s;
+    transform: scale(1);
+}
+
+@keyframes showModal {
+    from {
+        z-index: -1;
+        transform: scale(0);
+        opacity: 0;
+        display: none;
+    } to {
+        z-index: 2;
+        transform: scale(1);
+        opacity: 1;
+        display: block;
+    }
+}
+
+
+/* Modal Content/Box */
 .modalContent {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    margin: 10% auto;
+    /* 15% from the top and centered */
+    padding: 10px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%;
+    /* Could be more or less, depending on screen size */
 }
-  
-  /* The Close Button */
+
+/* The Close Button */
 .close {
+    display: block;
+    text-align: right;
+    margin: 0;
     color: #aaa;
-    float: right;
     font-size: 28px;
+    line-height: 18px;
     font-weight: bold;
 }
-  
+
 .close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.formGroup {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.formColumn {
+    width: 100%;
+    margin: 4px;
+}
+
+.label {
+    display: block;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 4px;
+}
+
+.formControl {
+    width: 100%;
+    height: 32px;
+    padding: 2%;
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 5px;
+}
+
+.radioGroup {
+    display: flex;
+    width: 100%;
+}
+
+.radioColumn {
+    flex: 50%;
+    width: 100%;
+    padding: 8px 0;
+}
+
+.inputRadio:hover {
     cursor: pointer;
 }
