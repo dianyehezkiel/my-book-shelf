@@ -1,36 +1,27 @@
-// Get the modal
-let bookModal = document.getElementById("bookModal");
+document.addEventListener("DOMContentLoaded", function () {
 
-// Get the button that opens the modal
-let addBookButton = document.getElementById("addBookButton");
-let editBookButton = document.getElementById("editBookButton");
+  const submitForm = document.getElementById("form");
+  const searchForm = document.getElementById("searchForm")
 
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
+  submitForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      addBook();
+  });
 
-// When the user clicks on the button, open the modal
-addBookButton.onclick = function () {
-    bookModal.classList.remove("hide");
-    bookModal.classList.remove("hideModal");
-    bookModal.classList.add("showModal")
-}
+  searchForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    searchBookByTitle();
+  })
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    bookModal.classList.remove("showModal");
-    bookModal.classList.add("hideModal");
-}
+  if(isStorageExist()){
+      loadDataFromStorage();
+  }
+});
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == bookModal) {
-        bookModal.classList.remove("showModal");
-        bookModal.classList.add("hideModal");
-    }
-}
+document.addEventListener("ondatasaved", () => {
+  console.log("Data berhasil di simpan.");
+});
 
-editBookButton.onclick = function () {
-    bookModal.classList.remove("hide");
-    bookModal.classList.remove("hideModal");
-    bookModal.classList.add("showModal")
-}
+document.addEventListener("ondataloaded", () => {
+  refreshDataFromBooks();
+});

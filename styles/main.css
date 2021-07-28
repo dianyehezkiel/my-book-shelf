@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    color: #eee;
+    color: #276678;
 }
 
 h1,
@@ -19,33 +19,30 @@ h6 {
 html {
     min-width: 100%;
     min-height: 100%;
-    background-image: linear-gradient(45deg, #2C001E, #77216F);
+    background-color: #F6F5F5;
     background-repeat: no-repeat;
 }
 
 button {
-    background-color: rgba(44, 0, 30, 0.6);
+    background-color: #D3E0EA;
 }
 
 button:hover {
-    background-color: rgba(44, 0, 30, 0.8);
+    background-color: #1687A7;
     cursor: pointer;
+    color: #F6F5F5;
 }
 
-button.greenButton:hover {
-    background-color: rgba(33, 78, 52, 0.8);
+button.completeButton:hover {
+    background-color: #247E6C;
 }
 
-button.blueButton:hover {
-    background-color: rgba(0, 107, 166, 0.8);
+button.trashButton:hover {
+    background-color: #DD2C00;
 }
 
-button.redButton:hover {
-    background-color: rgba(163, 50, 11, 0.8);
-}
-
-button.yellowButton:hover {
-    background-color: rgba(234, 196, 53, 0.8);
+button.undoButton:hover {
+    background-color: #F37121;
 }
 
 button.disabledButton {
@@ -59,6 +56,10 @@ button.disabledButton {
     justify-content: center;
 }
 
+.header > a {
+    text-decoration: none;
+}
+
 main {
     max-width: 100%;
     padding: 16px;
@@ -69,7 +70,7 @@ main {
     max-width: 100%;
 }
 
-.searchBar>#searchBook {
+.searchBar>#searchForm {
     display: flex;
     flex-direction: row;
     max-width: 100%;
@@ -77,25 +78,25 @@ main {
 
 }
 
-.searchBar>#searchBook>.formInput {
+.searchBar>#searchForm>.formInput {
     flex: 70%;
     padding: 8px;
     border: 0;
     border-radius: 8px 0px 0px 8px;
     font-size: 16px;
-    background-color: rgba(44, 0, 30, 0.4);
+    background-color: rgba(211, 224, 234, 0.7);
 }
 
-.searchBar>#searchBook>.formButton {
+.searchBar>#searchForm>.formButton {
     flex: 15%;
     padding: 8px;
     border: 0;
-    border-left: 1px #2C001E solid;
+    border-left: 1px #00042c solid;
     border-radius: 0;
     font-size: 16px;
 }
 
-.searchBar>#searchBook>.formButton:last-child {
+.searchBar>#searchForm>.formButton:last-child {
     border-radius: 0px 8px 8px 0px;
 }
 
@@ -125,8 +126,8 @@ main {
     line-height: 32px;
 }
 
-#notFinisihedBookList,
-#finishedBookeList {
+#notCompletedBooks,
+#completedBooks {
     display: flex;
     flex-direction: column;
 }
@@ -207,7 +208,7 @@ main {
     /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
     /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.2);
     /* Black w/ opacity */
 }
 
@@ -262,13 +263,18 @@ main {
 
 /* Modal Content/Box */
 .modalContent {
-    background-color: #fefefe;
+    background-color: #D3E0EA;
     margin: 10% auto;
     /* 15% from the top and centered */
     padding: 10px;
-    border: 1px solid #888;
     width: 80%;
+    border-radius: 8px;
     /* Could be more or less, depending on screen size */
+}
+
+.modalContent input {
+    background-color: rgba(174, 201, 221, 0.7);
+    border: 0;
 }
 
 /* The Close Button */
@@ -328,5 +334,16 @@ main {
 }
 
 .inputRadio:hover {
+    cursor: pointer;
+}
+
+#form > .formButton {
+    height: 24px;
+    width: 60px;
+    margin-left: 4px;
+    border-radius: 2px;
+}
+
+#form > .formButton:hover {
     cursor: pointer;
 }

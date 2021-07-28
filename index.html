@@ -11,15 +11,17 @@
 
 <body>
     <header class="header">
+        <a href="./index.html">
         <h1 class="pageTitle">
             My Book Shelf
         </h1>
+        </a>
     </header>
     <main>
         <div class="searchBar">
-            <form id="searchBook">
-                <input id="searchBookTitle" class="formInput" type="text" placeholder="Cari judul buku...">
-                <button id="searchBookButton" class="formButton" type="submit"><span
+            <form id="searchForm">
+                <input id="searchFormTitle" class="formInput" type="text" placeholder="Cari judul buku...">
+                <button id="searchFormButton" class="formButton" type="submit"><span
                         class="buttonText">Search</span></button>
                 <button id="addBookButton" class="formButton" type="button"><span class="buttonText">Add
                         Book</span></button>
@@ -28,7 +30,7 @@
         <div id="bookModal" class="modal hide">
             <div class="modalContent">
                 <span class="close">&times;</span>
-                <form id="addEditBook">
+                <form id="form">
                     <div class="formGroup">
                         <div class="formColumn">
                             <label for="title" id="titleLabel" class="label">Judul</label>
@@ -38,8 +40,8 @@
                     </div>
                     <div class="formGroup">
                         <div class="formColumn">
-                            <label for="author" id="authorLabel" class="label">Penulis</label>
-                            <input type="text" name="author" id="author" class="formControl"
+                            <label for="authors" id="authorLabel" class="label">Penulis</label>
+                            <input type="text" name="author" id="authors" class="formControl"
                                 placeholder="Masukkan Penulis..." required/>
                         </div>
                     </div>
@@ -50,83 +52,49 @@
                                 placeholder="Masukkan Tahun Terbit..." required />
                         </div>
                         <div class="formColumn">
-                            <p id="readlabel" class="label">Apakah buku ini telah selesai dibaca?</p>
+                            <p id="readlabel" class="label">Selesai dibaca?</p>
                             <div class="radioGroup">
                             <div class="radioColumn">
-                                <input name="finishedStatus" id="radioFinished" value="true" type="radio"
+                                <input name="completedStatus" id="radioCompleted" value="true" type="radio"
                                     class="inputRadio" />
-                                <label for="radioFinished" class="inputRadio">Selesai</label>
+                                <label for="radioCompleted" class="inputRadio">Ya</label>
                             </div>
                             <div class="radioColumn">
-                                <input name="finishedStatus" id="radioNotFinished" value="false" type="radio"
-                                    class="inputRadio">
-                                <label for="radioNotFinished" class="inputRadio">Belum Selesai</label>
+                                <input name="completedStatus" id="radioNotCompleted" value="false" type="radio"
+                                    class="inputRadio" checked>
+                                <label for="radioNotCompleted" class="inputRadio">Tidak</label>
                             </div>
                         </div>
                         </div>
                     </div>
-                    <button type="submit">Submit</button>
-                    <button type="reset">Reset</button>
-                    <button disabled="disabled" class="hide">Edit</button>
+                    <input id="submitBook" type="submit" value="Submit" class="formButton"></button>
+                    <input id="editBook" type="button" class="hide formButton" value="Edit"></button>
+                    <input id="resetForm" type="reset" value="Reset" class="formButton"></button>
                 </form>
             </div>
         </div>
         <div class="bookList">
-            <section id="notFinished" class="bookListSect">
+            <section id="notCompleted" class="bookListSect">
                 <h2 class="sectionTitle">
                     Belum selesai dibaca
                 </h2>
-                <div id="notFinsihedBookList">
-                    <div class="bookListItem">
-                        <div class="bookDesc">
-                            <h3 class="bookDescTitle">Book Example</h3>
-                            <p class="bookDescAuthor">Dian Yehezkiel</p>
-                            <p class="bookDescYear">2021</p>
-                        </div>
-                        <div class="bookButtons">
-                            <button id="editBookButton" class="editButton blueButton">Edit</button>
-                            <button class="finishedButton greenButton">Selesai Baca</button>
-                            <button class="removeButton redButton">Hapus</button>
-                        </div>
-                    </div>
-                    <div class="bookListItem">
-                        <div class="bookDesc">
-                            <h3 class="bookDescTitle">Really long title book example bla bla bla bla bla blabla bla bla
-                                bla bla bla bla bla bla bla bla bla bla bla</h3>
-                            <p class="bookDescAuthor">Dian Yehezkiel</p>
-                            <p class="bookDescYear">2021</p>
-                        </div>
-                        <div class="bookButtons">
-                            <button class="editButton blueButton">Edit</button>
-                            <button class="finishedButton greenButton">Selesai Baca</button>
-                            <button class="removeButton redButton">Hapus</button>
-                        </div>
-                    </div>
+                <div id="notCompletedBooks">
+                    
                 </div>
             </section>
-            <section id="finished" class="bookListSect">
+            <section id="completed" class="bookListSect">
                 <h2 class="sectionTitle">
                     Selesai dibaca
                 </h2>
-                <div id="finsihedBookList">
-                    <div class="bookListItem">
-                        <div class="bookDesc">
-                            <h3 class="bookDescTitle">Really long title book example bla bla bla bla bla blabla bla bla
-                                bla bla bla bla bla bla bla bla bla bla bla</h3>
-                            <p class="bookDescAuthor">Dian Yehezkiel</p>
-                            <p class="bookDescYear">2021</p>
-                        </div>
-                        <div class="bookButtons">
-                            <button class="editButton blueButton">Edit</button>
-                            <button class="finishedButton yellowButton">Belum Selesai Baca</button>
-                            <button class="removeButton redButton">Hapus</button>
-                        </div>
-                    </div>
+                <div id="completedBooks">
+                    
                 </div>
             </section>
         </div>
     </main>
 
+    <script src="./scripts/data.js"></script>
+    <script src="./scripts/dom.js"></script>
     <script src="./scripts/index.js"></script>
 </body>
 
